@@ -4,15 +4,20 @@
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
+//This block specifies that prisma should generate a client using the js/ts library "prisma-client"
+//The generated client provides a type-safe API to interact with the database
 generator client {
   provider = "prisma-client-js"
 }
 
+//provider: specifies that the database is postgresql
+//url: uses the link from the .env
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
+//The model block defines the structure of the User table in the database
 model User {
 	id	String @id @default(uuid())
 	email	String @unique
