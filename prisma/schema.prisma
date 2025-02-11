@@ -19,11 +19,29 @@ datasource db {
 
 //The model block defines the structure of the User table in the database
 model User {
-	id	String @id @default(uuid())
-	email	String @unique
-	phone	String @unique
-	name	String?
+	userid		String 		@id @default(uuid())
+	email		String 		@unique
+	phone		String 		@unique
+	name		String
 	password	String
-	createdAt	DateTime @default(now())
-	updatedAt DateTime @updatedAt
+	createdAt	DateTime 	@default(now())
+	updatedAt 	DateTime 	@updatedAt
+	role		String		//user or owner
+	slots 		Slot[]
+}
+
+model Alley {
+	alleyid 	Int		@id @default(autoincrement())
+	slots		Slot[]
+}
+
+model Slot {
+	slotid		Int		@id @default(autoincrement())
+	startTime	DateTime
+	endTime		DateTime
+	status		Boolean		@default(false) //rejected or approved //default not approved
+	userId		String 		//foreign key
+	alleyId		Int    		//foreign key
+	user		User		@relation(fields: [userId], references: [userid])
+	alley		Alley		@relation(fields: [alleyId], references: [alleyid])
 }
