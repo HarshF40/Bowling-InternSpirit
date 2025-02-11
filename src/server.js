@@ -1,5 +1,6 @@
 import express from "express";
 import authRoutes from './routes/authRoutes.js'
+import alleyRoutes from './routes/alleyRoutes.js'
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -11,6 +12,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/auth', authRoutes);
+app.use('/alley', authRoutes);
 
 app.listen(PORT, () => {
 	console.log(`Server: Running on PORT ${PORT}`);
