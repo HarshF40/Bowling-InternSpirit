@@ -1,0 +1,26 @@
+http://localhost:5000
+
+Accept: application/json;
+Content-Type: application/json; charset=utf-8
+
+POST /auth/signup
+{
+	"email" : "abcab@omale.com",
+	"phone" : "9812538973",
+	"username" : "h1q3lo",
+	"password" : "123111",
+	"role" : "MANAGER"
+}
+
+############################################
+
+http://localhost:5000
+
+Accept: application/json;
+Content-Type: application/json; charset=utf-8
+
+POST /auth/login
+{
+	"username" : "helo",
+	"password" : "123123123"
+}

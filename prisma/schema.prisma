@@ -1,47 +1,61 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
-//This block specifies that prisma should generate a client using the js/ts library "prisma-client"
-//The generated client provides a type-safe API to interact with the database
 generator client {
   provider = "prisma-client-js"
 }
 
-//provider: specifies that the database is postgresql
-//url: uses the link from the .env
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-//The model block defines the structure of the User table in the database
-model User {
-	userid		String 		@id @default(uuid())
-	email		String 		@unique
-	phone		String 		@unique
-	name		String
-	password	String
-	createdAt	DateTime 	@default(now())
-	updatedAt 	DateTime 	@updatedAt
-	role		String		//user or owner
-	slots 		Slot[]
+enum UserRole {
+  CUSTOMER
+  MANAGER
 }
 
-model Alley {
-	alleyid 	Int		@id @default(autoincrement())
-	slots		Slot[]
+enum ReservationStatus {
+  AVAILABLE
+  PENDING
+  APPROVED
+  REJECTED
 }
 
-model Slot {
-	slotid		Int		@id @default(autoincrement())
-	startTime	DateTime
-	endTime		DateTime
-	status		Boolean		@default(false) //rejected or approved //default not approved
-	userId		String 		//foreign key
-	alleyId		Int    		//foreign key
-	user		User		@relation(fields: [userId], references: [userid])
-	alley		Alley		@relation(fields: [alleyId], references: [alleyid])
+model Account {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  phone        String   @unique
+  username     String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  role         UserRole @default(CUSTOMER)
+  managedAlleys BowlingAlley[] @relation("ManagerAlleys") // If role is MANAGER, they manage alleys
+  reservations Reservation[]
+}
+
+model BowlingAlley {
+  id         Int      @id @default(autoincrement())
+  managerId  String
+  manager    Account @relation(fields: [managerId], references: [id], name: "ManagerAlleys")
+  timeSlots  TimeSlot[]
+}
+
+model TimeSlot {
+  id          Int         @id @default(autoincrement())
+  startTime   DateTime
+  endTime     DateTime
+  status      ReservationStatus @default(AVAILABLE)
+  alleyId     Int
+  bowlingAlley BowlingAlley @relation(fields: [alleyId], references: [id])
+  reservation Reservation?   // Remove the @relation here
+}
+
+model Reservation {
+  id              Int       @id @default(autoincrement())
+  accountId       String
+  timeSlotId      Int       @unique // Ensures a slot is booked only once
+  playerCount     Int
+  contactInfo     String
+  reservationStatus ReservationStatus @default(PENDING)
+  account         Account  @relation(fields: [accountId], references: [id])
+  timeSlot        TimeSlot @relation(fields: [timeSlotId], references: [id])
 }
