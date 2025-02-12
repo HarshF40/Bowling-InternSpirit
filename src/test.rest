@@ -5,10 +5,10 @@ Content-Type: application/json; charset=utf-8
 
 POST /auth/signup
 {
-	"email" : "abcab@omale.com",
-	"phone" : "9812538973",
-	"username" : "h1q3lo",
-	"password" : "123111",
+	"email" : "yuki@dev.com",
+	"phone" : "9999999999",
+	"username" : "yuki14",
+	"password" : "123123",
 	"role" : "MANAGER"
 }
 
@@ -24,3 +24,23 @@ POST /auth/login
 	"username" : "helo",
 	"password" : "123123123"
 }
+
+#############################################
+
+http://localhost:5000
+
+Accept: application/json;
+Content-Type: application/json; charset=utf-8
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjhlNWUzLTQxZGQtNDIzMC04MWI0LTBjNjUyMGY3MDRkMiIsImlhdCI6MTczOTM0NTU1OCwiZXhwIjoxNzM5NDMxOTU4fQ.08wb3HKAr7_wAHHNhELBuCeCW2Tv_31vdPpWZKymqZo
+
+POST /alley/new
+
+#############################################
+
+http://localhost:5000
+
+Accept: application/json;
+Content-Type: application/json; charset=utf-8
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjhlNWUzLTQxZGQtNDIzMC04MWI0LTBjNjUyMGY3MDRkMiIsImlhdCI6MTczOTM0NTU1OCwiZXhwIjoxNzM5NDMxOTU4fQ.08wb3HKAr7_wAHHNhELBuCeCW2Tv_31vdPpWZKymqZo
+
+GET /alley/list

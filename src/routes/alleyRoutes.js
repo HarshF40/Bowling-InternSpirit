@@ -1,6 +1,21 @@
 import express from "express";
 import prisma from "../prismaClient.js"
 
-const route = express.Router();
+const router = express.Router();
 
-route.post('')
+router.post('/new', async (req, res) => {
+	const alley = await prisma.bowlingAlley.create({
+		data : {
+			managerId : req.body.id
+		}
+	})
+	res.json(alley);
+})
+
+router.get('/list', async (req, res) => {
+	const alleys = await prisma.bowlingAlley.findMany();
+	console.log(alleys);
+	res.json(alleys);
+})
+
+export default router;
