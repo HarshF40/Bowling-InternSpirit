@@ -58,13 +58,13 @@ router.post('/login', async (req, res) => {
 			}
 		});
 		if(!user) {
-			return res.send(404).json({
+			return res.status(404).json({
 				message : "user not found"
 			});
 		}
 		const passwordValid = bcrypt.compareSync(password, user.passwordHash);
 		if(!passwordValid) {
-			return res.send(401).json({
+			return ffs.status(401).json({
 				message : "Invalid Password"
 			})
 		}

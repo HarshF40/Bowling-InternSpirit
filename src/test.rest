@@ -21,8 +21,8 @@ Content-Type: application/json; charset=utf-8
 
 POST /auth/login
 {
-	"username" : "helo",
-	"password" : "123123123"
+	"username" : "yuki14",
+	"password" : "123123"
 }
 
 #############################################

@@ -19,6 +19,11 @@ enum ReservationStatus {
   REJECTED
 }
 
+enum TimeSlotStatus{
+  AVAILABLE
+  UNAVAILABLE
+}
+
 model Account {
   id           String   @id @default(uuid())
   email        String   @unique
@@ -41,9 +46,9 @@ model BowlingAlley {
 
 model TimeSlot {
   id          Int         @id @default(autoincrement())
-  startTime   DateTime
-  endTime     DateTime
-  status      ReservationStatus @default(AVAILABLE)
+  startTime   String
+  endTime     String
+  status      TimeSlotStatus @default(AVAILABLE)
   alleyId     Int
   bowlingAlley BowlingAlley @relation(fields: [alleyId], references: [id])
   reservation Reservation?   // Remove the @relation here
