@@ -44,3 +44,20 @@ Content-Type: application/json; charset=utf-8
 authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjhlNWUzLTQxZGQtNDIzMC04MWI0LTBjNjUyMGY3MDRkMiIsImlhdCI6MTczOTM0NTU1OCwiZXhwIjoxNzM5NDMxOTU4fQ.08wb3HKAr7_wAHHNhELBuCeCW2Tv_31vdPpWZKymqZo
 
 GET /alley/list
+
+#############################################
+
+http://localhost:5000
+
+Accept: application/json;
+Content-Type: application/json; charset=utf-8
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjhlNWUzLTQxZGQtNDIzMC04MWI0LTBjNjUyMGY3MDRkMiIsImlhdCI6MTczOTUzODQzMCwiZXhwIjoxNzM5NjI0ODMwfQ.AUNOR0ix_gs5cFBSikWaD-ObHrsKiMSVXWZVdc0BEyg
+
+POST /request
+{
+	"startTime" : "16:00",
+	"endTime" : "20:00",
+	"alleyId" : 2,
+	"playerCount" : 7,
+	"contactInfo" : "998-773-221"
+}

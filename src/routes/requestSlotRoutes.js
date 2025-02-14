@@ -3,8 +3,33 @@ import prisma from '../prismaClient.js'
 
 const router = express.Router();
 
-router.post('/request', async (res, req) => {
-	//account id from the middleware
-	//starttime and endtime will be checked by a regex in the front end as it a string
-	{ startTime, endTime, alleyId, playerCount, contactInfo } = req
+router.post('/', async (req, res) => {
+	console.log(req.body)
+	const {startTime, endTime, alleyId, playerCount, contactInfo } = req.body
+	const id = req.id;
+	try {
+		const newTimeSlot = await prisma.timeSlot.create({
+			data : {
+				startTime,
+				endTime,
+				alleyId
+			}
+		});
+		console.log(newTimeSlot);
+		const newReservation = await prisma.reservation.create({
+			data : {
+				accountId : id,
+				timeSlotId : newTimeSlot.id,
+				playerCount,
+				contactInfo,
+			}
+		});
+		console.log(newReservation);
+		res.status(200).json(newReservation)
+	} catch(err) {
+		console.log(err);
+		return res.status(400).json({message : "Couldnt reserve a slot, try again"})
+	}
 })
+
+export default router
