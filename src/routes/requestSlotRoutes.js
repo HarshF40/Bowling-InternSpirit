@@ -5,13 +5,14 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
 	console.log(req.body)
-	const {startTime, endTime, alleyId, playerCount, contactInfo } = req.body
+	const {startTime, endTime, alleyId, playerCount, contactInfo, date} = req.body
 	const id = req.id;
 	try {
 		const newTimeSlot = await prisma.timeSlot.create({
 			data : {
 				startTime,
 				endTime,
+				date,
 				alleyId
 			}
 		});

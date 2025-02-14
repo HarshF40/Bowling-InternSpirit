@@ -1,7 +1,8 @@
 import prisma from '../prismaClient.js'
 
 const timeSlotMiddleware = async (req, res, next) => {
-	const {startTime, endTime, alleyId} = req.body;
+	console.log(req.body)
+	const {startTime, endTime, alleyId, date} = req.body;
 	try {
 		const isAlley = await prisma.bowlingAlley.findUnique({
 			where : { id: alleyId }
@@ -11,12 +12,17 @@ const timeSlotMiddleware = async (req, res, next) => {
 			where : { alleyId },
 			select : {
 				startTime : true,
-				endTime : true
+				endTime : true,
+				date: true,
 			}
 		});
+		console.log(timeslots)
 		for(let slot of timeslots){
-			if((startTime < slot.endTime && startTime > slot.startTime) || (endTime < slot.endTime && endTime > slot.startTime) || startTime == slot.startTime || endTime == slot.endTime)
-				return res.status(404).json({message : "No slot found, try another slot"});
+		console.log(slot.date, date)
+			if((startTime < slot.endTime && startTime > slot.startTime) || (endTime < slot.endTime && endTime > slot.startTime) || startTime == slot.startTime || endTime == slot.endTime){
+				if(date == slot.date)
+					return res.status(404).json({message : "No slot found, try another slot"});
+			}
 		}
 		next();
 	} catch(err) {

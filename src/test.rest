@@ -55,9 +55,10 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjhlNWUzLTQxZGQt
 
 POST /request
 {
-	"startTime" : "16:00",
-	"endTime" : "20:00",
+	"startTime" : "20:00",
+	"endTime" : "24:00",
 	"alleyId" : 2,
 	"playerCount" : 7,
-	"contactInfo" : "998-773-221"
+	"contactInfo" : "998-773-221",
+	"date" : "19-02-2025"
 }

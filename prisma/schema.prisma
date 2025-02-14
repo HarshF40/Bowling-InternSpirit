@@ -48,6 +48,7 @@ model TimeSlot {
   id          Int         @id @default(autoincrement())
   startTime   String
   endTime     String
+  date	      String
   status      TimeSlotStatus @default(AVAILABLE)
   alleyId     Int
   bowlingAlley BowlingAlley @relation(fields: [alleyId], references: [id])
