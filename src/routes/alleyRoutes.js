@@ -6,7 +6,7 @@ const router = express.Router();
 router.post('/new', async (req, res) => {
 	const alley = await prisma.bowlingAlley.create({
 		data : {
-			managerId : req.body.id
+			managerId : req.manId
 		}
 	})
 	res.json(alley);

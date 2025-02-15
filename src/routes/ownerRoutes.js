@@ -4,9 +4,9 @@ import express from 'express';
 
 const router = express.Router();
 
-router.get('/requests', async (req, res) => {
-	console.log("hey")
-	const {alleyId} = req.body;
+router.post('/requests', async (req, res) => {
+	const { alleyId } = req.body;
+	console.log(req.body)
 	try {
 		const slotReq = await prisma.reservation.findMany({
 			where : {

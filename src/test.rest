@@ -5,11 +5,11 @@ Content-Type: application/json; charset=utf-8
 
 POST /auth/signup
 {
-	"email" : "yuki@dev.com",
-	"phone" : "9999999999",
-	"username" : "yuki14",
+	"email" : "yuki@user.com",
+	"phone" : "1111111111",
+	"username" : "yukiCus",
 	"password" : "123123",
-	"role" : "MANAGER"
+	"role" : "CUSTOMER"
 }
 
 ############################################
@@ -31,7 +31,7 @@ http://localhost:5000
 
 Accept: application/json;
 Content-Type: application/json; charset=utf-8
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjhlNWUzLTQxZGQtNDIzMC04MWI0LTBjNjUyMGY3MDRkMiIsImlhdCI6MTczOTM0NTU1OCwiZXhwIjoxNzM5NDMxOTU4fQ.08wb3HKAr7_wAHHNhELBuCeCW2Tv_31vdPpWZKymqZo
+authorization: 
 
 POST /alley/new
 
@@ -41,7 +41,7 @@ http://localhost:5000
 
 Accept: application/json;
 Content-Type: application/json; charset=utf-8
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjhlNWUzLTQxZGQtNDIzMC04MWI0LTBjNjUyMGY3MDRkMiIsImlhdCI6MTczOTM0NTU1OCwiZXhwIjoxNzM5NDMxOTU4fQ.08wb3HKAr7_wAHHNhELBuCeCW2Tv_31vdPpWZKymqZo
+authorization: 
 
 GET /alley/list
 
@@ -51,13 +51,13 @@ http://localhost:5000
 
 Accept: application/json;
 Content-Type: application/json; charset=utf-8
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjhlNWUzLTQxZGQtNDIzMC04MWI0LTBjNjUyMGY3MDRkMiIsImlhdCI6MTczOTUzODQzMCwiZXhwIjoxNzM5NjI0ODMwfQ.AUNOR0ix_gs5cFBSikWaD-ObHrsKiMSVXWZVdc0BEyg
+authorization: 
 
 POST /request
 {
-	"startTime" : "7:00",
-	"endTime" : "12:00",
-	"alleyId" : 2,
+	"startTime" : "14:00",
+	"endTime" : "15:00",
+	"alleyId" : 8,
 	"playerCount" : 7,
 	"contactInfo" : "998-773-221",
 	"date" : "21-02-2025"
@@ -69,11 +69,11 @@ http://localhost:5000
 
 Accept: application/json;
 Content-Type: application/json; charset=utf-8
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjhlNWUzLTQxZGQtNDIzMC04MWI0LTBjNjUyMGY3MDRkMiIsImlhdCI6MTczOTUzODQzMCwiZXhwIjoxNzM5NjI0ODMwfQ.AUNOR0ix_gs5cFBSikWaD-ObHrsKiMSVXWZVdc0BEyg
+authorization: 
 
-GET /owner/requests
+POST /owner/requests
 {
-	"alleyId" : 2
+	"alleyId" : 8
 }
 
 #############################################
@@ -82,11 +82,11 @@ http://localhost:5000
 
 Accept: application/json;
 Content-Type: application/json; charset=utf-8
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjhlNWUzLTQxZGQtNDIzMC04MWI0LTBjNjUyMGY3MDRkMiIsImlhdCI6MTczOTUzODQzMCwiZXhwIjoxNzM5NjI0ODMwfQ.AUNOR0ix_gs5cFBSikWaD-ObHrsKiMSVXWZVdc0BEyg
+authorization: 
 
 POST /owner/approve
 {
-	"resId" : 20
+	"resId" : 26
 }
 
 #############################################
@@ -95,11 +95,11 @@ http://localhost:5000
 
 Accept: application/json;
 Content-Type: application/json; charset=utf-8
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjhlNWUzLTQxZGQtNDIzMC04MWI0LTBjNjUyMGY3MDRkMiIsImlhdCI6MTczOTUzODQzMCwiZXhwIjoxNzM5NjI0ODMwfQ.AUNOR0ix_gs5cFBSikWaD-ObHrsKiMSVXWZVdc0BEyg
+authorization:
 
 POST /owner/reject
 {
-	"resId" : 19
+	"resId" : 23
 }
 
 #############################################
@@ -108,9 +108,9 @@ http://localhost:5000
 
 Accept: application/json;
 Content-Type: application/json; charset=utf-8
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjhlNWUzLTQxZGQtNDIzMC04MWI0LTBjNjUyMGY3MDRkMiIsImlhdCI6MTczOTUzODQzMCwiZXhwIjoxNzM5NjI0ODMwfQ.AUNOR0ix_gs5cFBSikWaD-ObHrsKiMSVXWZVdc0BEyg
+authorization: 
 
 GET /slots
 {
-	"alleyId" : 19
+	"alleyId" : 8
 }

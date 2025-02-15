@@ -38,7 +38,7 @@ router.post('/signup', async (req, res) => {
 		role : role
             }
         });
-        const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '24h' });
+        const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '8h' });
         console.log("User successfully created", user);
         res.json({ token });
     } catch (err) {

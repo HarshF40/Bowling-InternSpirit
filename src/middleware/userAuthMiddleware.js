@@ -11,6 +11,7 @@ const userAuthMiddleware = (req, res, next) => {
 		if(err) {return res.status(401).json({message: "Invalid Token"})}
 		req.id = decode.id //this id will be used later to get the user details
 		console.log("User Authenticated");
+		console.log(req.alleyId)
 		next();
 	})
 }
