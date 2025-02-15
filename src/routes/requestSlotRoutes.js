@@ -4,10 +4,8 @@ import prisma from '../prismaClient.js'
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-	console.log(req.body)
 	const {startTime, endTime, alleyId, playerCount, contactInfo, date} = req.body;
 	const { id } = req;
-	console.log(id)
 	try {
 		const newTimeSlot = await prisma.timeSlot.create({
 			data : {
@@ -17,7 +15,6 @@ router.post('/', async (req, res) => {
 				alleyId
 			}
 		});
-		console.log(newTimeSlot);
 		const newReservation = await prisma.reservation.create({
 			data : {
 				accountId : id,
@@ -27,7 +24,6 @@ router.post('/', async (req, res) => {
 				alleyId
 			}
 		});
-		console.log(newReservation);
 		res.status(200).json(newReservation)
 	} catch(err) {
 		console.log(err);

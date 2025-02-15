@@ -3,7 +3,7 @@ import express from 'express';
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
+router.post('/', async (req, res) => {
 	const { alleyId } = req.body;
 	try {
 		const slots = await prisma.timeSlot.findMany({
@@ -12,11 +12,9 @@ router.get('/', async (req, res) => {
 				status : "UNAVAILABLE"
 			}
 		});
-		res.send(slots);
-	} catch(err) {
-		console.log(err)
-		res.send(404).json({message : "Enter Valid details"});
-	}
+		if(slots.length === 0) throw new Error("Alley not found")
+		return res.send(slots);
+	} catch(err) { return res.status(404).json({message : `${err.message}`}); }
 })
 
 export default router

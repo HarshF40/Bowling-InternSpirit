@@ -29,7 +29,6 @@ const roleMiddleware = async (req, res, next) => {
 			});
 		}
 		req.manId = uid;
-		console.log("Authorisation Complete")
 		next();
 	} catch(err) {
 		console.log(err);

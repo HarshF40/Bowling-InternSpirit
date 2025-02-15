@@ -13,9 +13,12 @@ router.post('/new', async (req, res) => {
 })
 
 router.get('/list', async (req, res) => {
-	const alleys = await prisma.bowlingAlley.findMany();
-	console.log(alleys);
-	res.json(alleys);
+	try {
+		const alleys = await prisma.bowlingAlley.findMany();
+		res.json(alleys);
+	} catch(err) {
+		return res.send(404).json({message : "No alleys found"});
+	}
 })
 
 export default router;
