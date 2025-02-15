@@ -5,8 +5,9 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
 	console.log(req.body)
-	const {startTime, endTime, alleyId, playerCount, contactInfo, date} = req.body
-	const id = req.id;
+	const {startTime, endTime, alleyId, playerCount, contactInfo, date} = req.body;
+	const { id } = req;
+	console.log(id)
 	try {
 		const newTimeSlot = await prisma.timeSlot.create({
 			data : {
@@ -23,6 +24,7 @@ router.post('/', async (req, res) => {
 				timeSlotId : newTimeSlot.id,
 				playerCount,
 				contactInfo,
+				alleyId
 			}
 		});
 		console.log(newReservation);

@@ -28,7 +28,7 @@ const roleMiddleware = async (req, res, next) => {
 				message : "access denied"
 			});
 		}
-		req.body = decoded;
+		//req.body = decoded;
 		console.log("Authorisation Complete")
 		next();
 	} catch(err) {

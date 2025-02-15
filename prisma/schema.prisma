@@ -13,7 +13,6 @@ enum UserRole {
 }
 
 enum ReservationStatus {
-  AVAILABLE
   PENDING
   APPROVED
   REJECTED
@@ -42,6 +41,7 @@ model BowlingAlley {
   managerId  String
   manager    Account @relation(fields: [managerId], references: [id], name: "ManagerAlleys")
   timeSlots  TimeSlot[]
+  reservations Reservation[]
 }
 
 model TimeSlot {
@@ -61,7 +61,9 @@ model Reservation {
   timeSlotId      Int       @unique // Ensures a slot is booked only once
   playerCount     Int
   contactInfo     String
+  alleyId	  Int
   reservationStatus ReservationStatus @default(PENDING)
   account         Account  @relation(fields: [accountId], references: [id])
   timeSlot        TimeSlot @relation(fields: [timeSlotId], references: [id])
+  alley		  BowlingAlley @relation(fields: [alleyId], references: [id])
 }
