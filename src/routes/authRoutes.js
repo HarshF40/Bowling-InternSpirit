@@ -64,7 +64,7 @@ router.post('/login', async (req, res) => {
 		}
 		const passwordValid = bcrypt.compareSync(password, user.passwordHash);
 		if(!passwordValid) {
-			return ffs.status(401).json({
+			return res.status(401).json({
 				message : "Invalid Password"
 			})
 		}

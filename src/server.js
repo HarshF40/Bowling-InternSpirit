@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
+app.get('/', (_, res) => {
 	res.sendStatus(200);
 })
 

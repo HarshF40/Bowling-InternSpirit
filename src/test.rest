@@ -5,11 +5,11 @@ Content-Type: application/json; charset=utf-8
 
 POST /auth/signup
 {
-	"email" : "yuki@dev.com",
-	"phone" : "9999999999",
-	"username" : "yukiMan",
+	"email" : "yuki@man.com",
+	"phone" : "1111111111",
+	"username" : "yukiCus",
 	"password" : "123123",
-	"role" : "MANAGER"
+	"role" : "CUSTOMER"
 }
 
 ############################################
@@ -22,7 +22,7 @@ Content-Type: application/json; charset=utf-8
 POST /auth/login
 {
 	"username" : "yukiCus",
-	"password" : "123123"
+	"password" : "1231239"
 }
 
 #############################################
@@ -31,8 +31,7 @@ http://localhost:5000
 
 Accept: application/json;
 Content-Type: application/json; charset=utf-8
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJiNzI0NjViLTJkYTctNDA0Yy1iYzU4LWFkNjc3ZDg0MmYyNSIsImlhdCI6MTczOTYyODM4MiwiZXhwIjoxNzM5NjU3MTgyfQ.Jo5QYuwZVQP1CWX9mzbG8eDGaG_PxBBPTkUspyqF0dM 
-
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2Mjk0YmRkLTNkNTYtNDVhZi04OGY0LTJhMjQ0MThjZTA3NiIsImlhdCI6MTczOTY4NzM2OSwiZXhwIjoxNzM5NzE2MTY5fQ.VWpi6q-cgt6G5Vs1lLATT1ygLv0pfl_iN55OBt2hZH4
 POST /alley/new
 
 #############################################
@@ -41,7 +40,7 @@ http://localhost:5000
 
 Accept: application/json;
 Content-Type: application/json; charset=utf-8
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJiNzI0NjViLTJkYTctNDA0Yy1iYzU4LWFkNjc3ZDg0MmYyNSIsImlhdCI6MTczOTYyODM4MiwiZXhwIjoxNzM5NjU3MTgyfQ.Jo5QYuwZVQP1CWX9mzbG8eDGaG_PxBBPTkUspyqF0dM 
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2Mjk0YmRkLTNkNTYtNDVhZi04OGY0LTJhMjQ0MThjZTA3NiIsImlhdCI6MTczOTY4NzM2OSwiZXhwIjoxNzM5NzE2MTY5fQ.VWpi6q-cgt6G5Vs1lLATT1ygLv0pfl_iN55OBt2hZH4 
 
 GET /alley/list
 
@@ -51,13 +50,12 @@ http://localhost:5000
 
 Accept: application/json;
 Content-Type: application/json; charset=utf-8
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ2NzI0OGY3LWNmMDUtNDZiYS1hZWZhLWI3ZTI4ZjQwMjExZiIsImlhdCI6MTczOTYyODMxNywiZXhwIjoxNzM5NjU3MTE3fQ.b5ETM6NhtsQT_5EDfbYMfmlMOj1ItnhXqGw9lH8MVmU 
-
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk3OTQyYWJiLTQ1M2EtNDJjOC04YzMzLWM1NjZhNmIzODQwOSIsImlhdCI6MTczOTY4NzY5NSwiZXhwIjoxNzM5Nzc0MDk1fQ.7m6Ay7qeZz7W2VBIGehhf-uPA5N1r-8lkE7GjVuwBZ0 
 POST /request
 {
-	"startTime" : "17:00",
-	"endTime" : "19:00",
-	"alleyId" : 16,
+	"startTime" : "20:00",
+	"endTime" : "24:00",
+	"alleyId" : 19,
 	"playerCount" : 7,
 	"contactInfo" : "998-773-221",
 	"date" : "21-02-2025"
@@ -69,11 +67,11 @@ http://localhost:5000
 
 Accept: application/json;
 Content-Type: application/json; charset=utf-8
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJiNzI0NjViLTJkYTctNDA0Yy1iYzU4LWFkNjc3ZDg0MmYyNSIsImlhdCI6MTczOTYyODM4MiwiZXhwIjoxNzM5NjU3MTgyfQ.Jo5QYuwZVQP1CWX9mzbG8eDGaG_PxBBPTkUspyqF0dM  
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2Mjk0YmRkLTNkNTYtNDVhZi04OGY0LTJhMjQ0MThjZTA3NiIsImlhdCI6MTczOTY4NzM2OSwiZXhwIjoxNzM5NzE2MTY5fQ.VWpi6q-cgt6G5Vs1lLATT1ygLv0pfl_iN55OBt2hZH4 
 
 POST /owner/requests
 {
-	"alleyId" : 16
+	"alleyId" : 19
 }
 
 #############################################
@@ -82,11 +80,11 @@ http://localhost:5000
 
 Accept: application/json;
 Content-Type: application/json; charset=utf-8
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJiNzI0NjViLTJkYTctNDA0Yy1iYzU4LWFkNjc3ZDg0MmYyNSIsImlhdCI6MTczOTYyODM4MiwiZXhwIjoxNzM5NjU3MTgyfQ.Jo5QYuwZVQP1CWX9mzbG8eDGaG_PxBBPTkUspyqF0dM  
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2Mjk0YmRkLTNkNTYtNDVhZi04OGY0LTJhMjQ0MThjZTA3NiIsImlhdCI6MTczOTY4NzM2OSwiZXhwIjoxNzM5NzE2MTY5fQ.VWpi6q-cgt6G5Vs1lLATT1ygLv0pfl_iN55OBt2hZH4  
 
 POST /owner/approve
 {
-	"resId" : 29
+	"resId" : 34
 }
 
 #############################################
@@ -95,11 +93,10 @@ http://localhost:5000
 
 Accept: application/json;
 Content-Type: application/json; charset=utf-8
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJiNzI0NjViLTJkYTctNDA0Yy1iYzU4LWFkNjc3ZDg0MmYyNSIsImlhdCI6MTczOTYyODM4MiwiZXhwIjoxNzM5NjU3MTgyfQ.Jo5QYuwZVQP1CWX9mzbG8eDGaG_PxBBPTkUspyqF0dM
-
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2Mjk0YmRkLTNkNTYtNDVhZi04OGY0LTJhMjQ0MThjZTA3NiIsImlhdCI6MTczOTY4NzM2OSwiZXhwIjoxNzM5NzE2MTY5fQ.VWpi6q-cgt6G5Vs1lLATT1ygLv0pfl_iN55OBt2hZH4  
 POST /owner/reject
 {
-	"resId" : 31
+	"resId" : 35
 }
 
 #############################################
@@ -108,8 +105,35 @@ http://localhost:5000
 
 Accept: application/json;
 Content-Type: application/json; charset=utf-8
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ2NzI0OGY3LWNmMDUtNDZiYS1hZWZhLWI3ZTI4ZjQwMjExZiIsImlhdCI6MTczOTYyODMxNywiZXhwIjoxNzM5NjU3MTE3fQ.b5ETM6NhtsQT_5EDfbYMfmlMOj1ItnhXqGw9lH8MVmU 
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk3OTQyYWJiLTQ1M2EtNDJjOC04YzMzLWM1NjZhNmIzODQwOSIsImlhdCI6MTczOTY4NzY5NSwiZXhwIjoxNzM5Nzc0MDk1fQ.7m6Ay7qeZz7W2VBIGehhf-uPA5N1r-8lkE7GjVuwBZ0 
 POST /slots
 {
-	"alleyId" : 16
+	"alleyId" : 19
 }
+
+#############################################
+
+http://localhost:5000
+
+Accept: application/json;
+Content-Type: application/json; charset=utf-8
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2Mjk0YmRkLTNkNTYtNDVhZi04OGY0LTJhMjQ0MThjZTA3NiIsImlhdCI6MTczOTY4NzM2OSwiZXhwIjoxNzM5NzE2MTY5fQ.VWpi6q-cgt6G5Vs1lLATT1ygLv0pfl_iN55OBt2hZH4 
+DELETE /owner/delete/34
+
+#############################################
+
+http://localhost:5000
+
+Accept: application/json;
+Content-Type: application/json; charset=utf-8
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2Mjk0YmRkLTNkNTYtNDVhZi04OGY0LTJhMjQ0MThjZTA3NiIsImlhdCI6MTczOTY4NzM2OSwiZXhwIjoxNzM5NzE2MTY5fQ.VWpi6q-cgt6G5Vs1lLATT1ygLv0pfl_iN55OBt2hZH4 
+DELETE /alley/delete/19
+
+#############################################
+
+http://localhost:5000
+
+Accept: application/json;
+Content-Type: application/json; charset=utf-8
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2Mjk0YmRkLTNkNTYtNDVhZi04OGY0LTJhMjQ0MThjZTA3NiIsImlhdCI6MTczOTY4NzM2OSwiZXhwIjoxNzM5NzE2MTY5fQ.VWpi6q-cgt6G5Vs1lLATT1ygLv0pfl_iN55OBt2hZH4 
+GET /owner/reservation/19
